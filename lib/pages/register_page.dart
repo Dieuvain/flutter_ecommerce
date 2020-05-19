@@ -11,6 +11,9 @@ class RegisterPageState extends State<RegisterPage> {
  
  final _formkey=GlobalKey<FormState>(); //VERIFICAtion des champs en appuyant sur le bouton Submit
 
+//Afectation Valeur vai et faux a l'icone de l'oeil
+  bool _obscureText = true;
+
 String _username,_email,_password,_phone;
 
 
@@ -66,8 +69,17 @@ return
                     onSaved: (val)=>_password=val,
                       //Definition de la Zone  de Text Username
                       validator: (val)=>val.length<8?'password very short':null,//verification des caracteres pour la longuer de la chaine de mot de passe
-                      obscureText: true,
+                      obscureText: _obscureText,
                       decoration: InputDecoration(
+
+                          suffixIcon: GestureDetector(
+                onTap: () {
+                  setState(() => _obscureText = !_obscureText);
+                },
+                //changement Icon pour visuel et non Visuel
+                child: Icon(
+                    _obscureText ? Icons.visibility : Icons.visibility_off),
+              ),
                         //border: OutlineInputBorder(),
                         labelText: 'Passwords',
                         hintText: 'Enter the Username,min lenght 8',
