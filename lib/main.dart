@@ -9,10 +9,11 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  //Test Valid
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Limanga',
+      title: 'LimangaMarket',
 
 routes: { '/login': (BuildContext context) =>loginPage() , '/register': (BuildContext context) =>RegisterPage()
 
